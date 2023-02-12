@@ -8,17 +8,18 @@
     "test": "jest",
     "prettier": "prettier --write .",
     "build": "rimraf ./dist && tsc -p tsconfig.json",
-    "start": "NODE_ENV=production node dist/server.js",
+    "start": "node dist/server.js",
+    "update-changelog": "auto-changelog -p",
     "prisma-studio": "npx prisma studio",
     "prisma-migrate": "npx prisma migrate dev",
     "prisma-format": "npx prisma format",
-    "prisma-validate": "npx prisma validate",
-    "update-changelog": "auto-changelog -p"
+    "prisma-validate": "npx prisma validate"
   },
   "author": "mtorre4850@outlook.com",
   "license": "MIT",
   "dependencies": {
     "@prisma/client": "^4.10.1",
+    "compression": "^1.7.4",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",

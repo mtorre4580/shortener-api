@@ -5,6 +5,7 @@ dotenv.config();
 import express, { Application } from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
+import compression from 'compression';
 import api from './api/shortener';
 
 const PORT = 3000 || process.env.PORT;
@@ -15,13 +16,19 @@ app.disable('x-powered-by');
 
 app.use(morgan('dev'));
 app.use(cors());
+app.use(compression());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+app.get('/health', (_, res) => {
+  res.json({ message: 'ok' });
+});
+
 app.use('/api', api);
 
 app.use((err, _, res, next) => {
   if (err) {
-    return res.status(500).json({ msg: 'Internal server error' });
+    return res.status(500).json({ message: 'Internal server error' });
   }
   next();
 });
