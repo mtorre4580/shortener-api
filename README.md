@@ -15,7 +15,7 @@ Shortener API built with Prisma.io and Express.js
 - `npm run build`
 - `npm run start`
 
-## Tests
+## Tests
 
 - `npm run test`
 

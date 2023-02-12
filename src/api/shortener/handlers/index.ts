@@ -1,4 +1,4 @@
-import createShortenerURL from './createShortenerURL';
+import createTinyURL from './createTinyURL';
 import getLongURL from './getLongURL';
 
-export { createShortenerURL, getLongURL };
+export { createTinyURL, getLongURL };

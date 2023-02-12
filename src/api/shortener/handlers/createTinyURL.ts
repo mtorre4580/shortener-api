@@ -1,12 +1,12 @@
 import { Request, Response } from 'express';
 import { base62, generateID, prisma, validator } from '../utils';
 
-const BASE_URL_SHORTENER = `${process.env.BASE_URL}/api/shortener/`;
+const BASE_URL_SHORTENER = `${process.env.BASE_URL}/api/tiny/`;
 
 /**
  * Handler to create the tiny URL from the current URL
  */
-async function createShortenerURL(req: Request, res: Response) {
+async function createTinyURL(req: Request, res: Response) {
   try {
     const { url: longURL } = req.body;
 
@@ -31,4 +31,4 @@ async function createShortenerURL(req: Request, res: Response) {
   }
 }
 
-export default createShortenerURL;
+export default createTinyURL;
