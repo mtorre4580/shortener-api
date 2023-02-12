@@ -19,6 +19,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use('/api', api);
 
+app.use((err, _, res, next) => {
+  if (err) {
+    return res.status(500).json({ msg: 'Internal server error' });
+  }
+  next();
+});
+
 app.listen(PORT, () => {
   return console.log(`API is listening at http://localhost:${PORT}`);
 });

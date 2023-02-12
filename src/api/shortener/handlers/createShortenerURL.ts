@@ -1,23 +1,34 @@
 import { Request, Response } from 'express';
-import { base62, generateID } from '../utils';
+import { base62, generateID, prisma, validator } from '../utils';
 
 const BASE_URL_SHORTENER = `${process.env.BASE_URL}/api/shortener/`;
 
-function createShortenerURL(req: Request, res: Response) {
-  const { url: longURL } = req.body;
+/**
+ * Handler to create the tiny URL from the current URL
+ */
+async function createShortenerURL(req: Request, res: Response) {
+  try {
+    const { url: longURL } = req.body;
 
-  const id = generateID();
-  const shortURL = `${BASE_URL_SHORTENER}${base62.encode(id)}`;
+    if (!validator.isValidURL(longURL)) {
+      return res.status(400).json({ message: 'Invalid URL passed' });
+    }
 
-  const payload = {
-    shortURL,
-    longURL,
-  };
+    const id = generateID();
+    const shortURL = `${BASE_URL_SHORTENER}${base62.encode(id)}`;
 
-  console.log('id generated', id);
-  console.log('payload to store', payload);
+    await prisma.url.create({
+      data: {
+        id,
+        shortURL,
+        longURL,
+      },
+    });
 
-  return res.json({ url: shortURL });
+    return res.json({ url: shortURL });
+  } catch (err) {
+    return res.status(500).json({ message: 'Error creating the shortener' });
+  }
 }
 
 export default createShortenerURL;

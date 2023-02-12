@@ -1,6 +1,9 @@
 const SCHEME = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const SCHEME_SIZE = SCHEME.length;
 
+/**
+ * Encode the number using the base62 algorithm
+ */
 function encode(number: number) {
   let result: string[] = [];
 
@@ -15,6 +18,9 @@ function encode(number: number) {
   return result.join('');
 }
 
+/**
+ * Decode the string using the base62 algorithm
+ */
 function decode(chars: string) {
   const charsReverse = chars.split('').reverse();
 
