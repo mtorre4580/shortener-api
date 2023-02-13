@@ -2,7 +2,8 @@
 
 Shortener API built with **Prisma.io** and **Express.js**
 
-<img style="width:200px" src="https://github.com/mtorre4580/shortener-api/blob/main/shortener.png" alt="shortener-api">
+ <img style="width:200px" src="https://github.com/mtorre4580/shortener-api/blob/main/shortener.png" alt="shortener-api">
+ <img src="https://github.com/mtorre4580/shortener-api/blob/main/shortener-swagger.png" alt="api docs" />
 
 ## Installation
 
@@ -11,8 +12,6 @@ Shortener API built with **Prisma.io** and **Express.js**
 ## Run API in development
 
 - `npm run dev`
-
-http://localhost:3000/api-docs
 
 ## Build for production
 
