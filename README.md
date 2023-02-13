@@ -1,8 +1,8 @@
 # Shortener-API
 
-Shortener API built with Prisma.io and Express.js
+Shortener API built with **Prisma.io** and **Express.js**
 
-<img src="" alt="shortener-api">
+<img style="width:200px" src="https://github.com/mtorre4580/shortener-api/blob/main/shortener.png" alt="shortener-api">
 
 ## Installation
 
@@ -23,6 +23,6 @@ Shortener API built with Prisma.io and Express.js
 
 ## Stack
 
-- Express.js
-- Prisma.io
-- TypeScript
+- [Express.js](https://expressjs.com/)
+- [Prisma.io](https://www.prisma.io/)
+- [TypeScript](https://www.typescriptlang.org/)
