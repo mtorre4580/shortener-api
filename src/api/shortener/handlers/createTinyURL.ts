@@ -27,7 +27,7 @@ async function createTinyURL(req: Request, res: Response) {
 
     return res.json({ url: shortURL });
   } catch (err) {
-    return res.status(500).json({ message: 'Error creating the shortener' });
+    return res.status(500).json({ message: 'Error creating the tiny url' });
   }
 }
 

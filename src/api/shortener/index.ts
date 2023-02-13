@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import rateLimit, { MemoryStore } from 'express-rate-limit';
-import { createTinyURL, getLongURL } from './handlers';
+import { createTinyURL, getLongURL, getURLs } from './handlers';
 
 const router = Router();
 
@@ -14,6 +14,7 @@ const apiRateLimit = rateLimit({
 
 router.use(apiRateLimit);
 
+router.get('/tiny', getURLs);
 router.post('/tiny', createTinyURL);
 router.get('/tiny/:number', getLongURL);
 
