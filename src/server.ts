@@ -8,8 +8,6 @@ import cors from 'cors';
 import compression from 'compression';
 import api from './api/shortener';
 
-const PORT = 3000 || process.env.PORT;
-
 const app: Application = express();
 
 app.disable('x-powered-by');
@@ -33,6 +31,4 @@ app.use((err, _, res, next) => {
   next();
 });
 
-app.listen(PORT, () => {
-  return console.log(`API is listening at http://localhost:${PORT}`);
-});
+export default app;

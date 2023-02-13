@@ -1,6 +1,6 @@
 import { isValidURL } from '../validator';
 
-describe('utils::validator', () => {
+describe('validator', () => {
   test('should return true for a correct url', () => {
     expect(isValidURL('https://www.google.com')).toBeTruthy();
   });

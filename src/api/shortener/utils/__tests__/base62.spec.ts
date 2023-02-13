@@ -1,6 +1,6 @@
 import { encode, decode } from '../base62';
 
-describe('utils::base62', () => {
+describe('base62', () => {
   test('should encode and decode correctly the numbers', () => {
     expect(encode(11157)).toEqual('2TX');
     expect(decode('2TX')).toEqual(11157);

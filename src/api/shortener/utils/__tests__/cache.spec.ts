@@ -1,7 +1,7 @@
 import { getKey, setKey } from '../cache';
 
-describe('utils::cache', () => {
-  test('should get / set a value', () => {
+describe('cache', () => {
+  test('should get / set a value from the cache', () => {
     const key = 9817238913;
 
     const payload = {

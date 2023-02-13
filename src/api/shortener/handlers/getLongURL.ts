@@ -21,7 +21,7 @@ async function getLongURL(req: Request, res: Response) {
       cache.setKey(id, urlResponse);
     }
 
-    return res.status(301).redirect(urlResponse.longURL);
+    return res.redirect(301, urlResponse.longURL);
   } catch (err) {
     return res.status(500).json({ message: 'Error retrieving the URL' });
   }
