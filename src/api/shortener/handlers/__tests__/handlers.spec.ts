@@ -2,6 +2,12 @@ import request from 'supertest';
 import server from '../../../../server';
 
 describe('handlers', () => {
+  test('should check the status of the API', async () => {
+    const { status, body } = await request(server).get('/health');
+    expect(status).toEqual(200);
+    expect(body).toEqual({ message: 'ok' });
+  });
+
   test('should redirect to https://amazon.com', async () => {
     const { status, text } = await request(server).get('/api/tiny/g6du46clG');
     expect(status).toEqual(301);
