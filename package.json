@@ -26,6 +26,7 @@
     "express-rate-limit": "^6.7.0",
     "morgan": "^1.10.0",
     "node-cache": "^5.1.2",
+    "swagger-ui-express": "^4.6.0",
     "uuid-int": "^3.1.0"
   },
   "devDependencies": {

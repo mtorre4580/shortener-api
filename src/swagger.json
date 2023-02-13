@@ -1,0 +1,136 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Swagger Shortener - OpenAPI 3.0",
+    "description": "Api documentation for the shortener API",
+    "termsOfService": "http://swagger.io/terms/",
+    "contact": {
+      "email": "mtorre4580@outlook.com"
+    },
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    },
+    "version": "0.0.1"
+  },
+  "externalDocs": {
+    "description": "Find out more about Swagger",
+    "url": "http://swagger.io"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000/api"
+    }
+  ],
+  "tags": [
+    {
+      "name": "tiny",
+      "externalDocs": {
+        "description": "Find out more",
+        "url": "http://swagger.io"
+      }
+    }
+  ],
+  "paths": {
+    "/tiny": {
+      "post": {
+        "tags": ["tiny"],
+        "summary": "Create a tiny url for the url",
+        "requestBody": {
+          "description": "Create a tiny url",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/URLRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/URL"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": ["tiny"],
+        "summary": "List all the urls",
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "urls": {
+                    "$ref": "#/components/schemas/URL"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tiny/{code}": {
+      "get": {
+        "tags": ["tiny"],
+        "summary": "Retrieve the full URL",
+        "parameters": [
+          {
+            "name": "code",
+            "in": "path",
+            "description": "hash url",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "301": {
+            "description": "Moved Permanently. Redirecting to "
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "URLRequest": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "example": "https://amazon.com"
+          }
+        }
+      },
+      "URL": {
+        "type": "object",
+        "properties": {
+          "longURL": {
+            "type": "string",
+            "example": "https://amazon.com"
+          },
+          "shortURL": {
+            "type": "string",
+            "example": "http://localhost:3000/api/tiny/g6du46clG"
+          },
+          "id": {
+            "type": "integer",
+            "example": 3515337324625920
+          }
+        }
+      }
+    }
+  }
+}

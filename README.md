@@ -12,6 +12,8 @@ Shortener API built with **Prisma.io** and **Express.js**
 
 - `npm run dev`
 
+http://localhost:3000/api-docs
+
 ## Build for production
 
 - `npm run build`

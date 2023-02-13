@@ -7,6 +7,8 @@ import morgan from 'morgan';
 import cors from 'cors';
 import compression from 'compression';
 import api from './api/shortener';
+import { serve, setup } from 'swagger-ui-express';
+import swaggerDocument from './swagger.json';
 
 const app: Application = express();
 
@@ -23,6 +25,7 @@ app.get('/health', (_, res) => {
 });
 
 app.use('/api', api);
+app.use('/api-docs', serve, setup(swaggerDocument));
 
 app.use((err, _, res, next) => {
   if (err) {
