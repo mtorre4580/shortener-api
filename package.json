@@ -15,7 +15,7 @@
     "prisma-format": "npx prisma format",
     "prisma-validate": "npx prisma validate"
   },
-  "author": "mtorre4850@outlook.com",
+  "author": "mtorre4850",
   "license": "MIT",
   "dependencies": {
     "@prisma/client": "^4.10.1",
